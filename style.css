@@ -1,1 +1,787 @@
+/* ======================================================
+   USO LOCADORA
+   SISTEMA DE ORÇAMENTO VEICULAR
+====================================================== */
 
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+
+    background:#ececec;
+
+    color:#222;
+
+}
+
+.container{
+
+    width:95%;
+
+    max-width:1200px;
+
+    margin:40px auto;
+
+}
+
+header{
+
+    background:#ffffff;
+
+    border-radius:18px;
+
+    padding:30px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+
+    margin-bottom:35px;
+
+}
+
+.logoArea{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:25px;
+
+}
+
+.logo{
+
+    width:170px;
+
+}
+
+.logoArea h1{
+
+    font-size:30px;
+
+    color:#111;
+
+    font-weight:700;
+
+}
+
+.logoArea p{
+
+    color:#666;
+
+    margin-top:8px;
+
+}
+
+.progresso{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+}
+
+.etapa{
+
+    width:45px;
+
+    height:45px;
+
+    border-radius:50%;
+
+    background:#d8d8d8;
+
+    color:white;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-weight:bold;
+
+    font-size:18px;
+
+}
+
+.etapa.ativa{
+
+    background:#f57c00;
+
+}
+
+.linha{
+
+    width:80px;
+
+    height:4px;
+
+    background:#d7d7d7;
+
+}
+
+.pagina{
+
+    display:none;
+
+}
+
+.pagina.ativa{
+
+    display:block;
+
+}
+
+.card{
+
+    background:white;
+
+    border-radius:18px;
+
+    padding:30px;
+
+    margin-bottom:25px;
+
+    box-shadow:0 8px 20px rgba(0,0,0,.06);
+
+}
+
+.card h2{
+
+    margin-bottom:25px;
+
+    color:#111;
+
+    font-size:24px;
+
+    padding-bottom:10px;
+
+    border-bottom:3px solid #f57c00;
+
+}
+
+.grid{
+
+    display:grid;
+
+    grid-template-columns:1fr;
+
+    gap:20px;
+
+}
+
+.grid2{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:20px;
+
+}
+
+.campo{
+
+    display:flex;
+
+    flex-direction:column;
+
+}
+
+.campo label{
+
+    margin-bottom:8px;
+
+    color:#444;
+
+    font-weight:600;
+
+}
+
+.campo input{
+
+    height:50px;
+
+    border:1px solid #d8d8d8;
+
+    border-radius:10px;
+
+    padding-left:15px;
+
+    font-size:15px;
+
+    transition:.25s;
+
+    background:#fafafa;
+
+}
+
+.campo input:focus{
+
+    outline:none;
+
+    border:1px solid #f57c00;
+
+    background:white;
+
+    box-shadow:0 0 10px rgba(245,124,0,.15);
+
+}
+
+.footer{
+
+    display:flex;
+
+    justify-content:flex-end;
+
+    gap:15px;
+
+    margin-top:20px;
+
+}
+
+.btn{
+
+    background:#f57c00;
+
+    color:white;
+
+    border:none;
+
+    height:48px;
+
+    padding:0 30px;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    font-size:15px;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+.btn:hover{
+
+    background:#dd6d00;
+
+}
+
+.btnVoltar{
+
+    background:#222;
+
+    color:white;
+
+    border:none;
+
+    height:48px;
+
+    padding:0 30px;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.btnVoltar:hover{
+
+    background:#111;
+
+}
+
+/* ===========================================================
+   LISTAS DE PEÇAS E SERVIÇOS
+=========================================================== */
+
+.cabecalhoLista{
+
+    display:grid;
+
+    grid-template-columns:2fr 180px 70px;
+
+    gap:15px;
+
+    font-weight:600;
+
+    color:#555;
+
+    margin-bottom:18px;
+
+    padding:0 5px;
+
+}
+
+.itemLista{
+
+    display:grid;
+
+    grid-template-columns:2fr 180px 70px;
+
+    gap:15px;
+
+    margin-bottom:15px;
+
+}
+
+.itemLista input{
+
+    width:100%;
+
+    height:50px;
+
+    border:1px solid #d8d8d8;
+
+    border-radius:10px;
+
+    padding-left:15px;
+
+    font-size:15px;
+
+    background:#fafafa;
+
+    transition:.25s;
+
+}
+
+.itemLista input:focus{
+
+    outline:none;
+
+    border:1px solid #F57C00;
+
+    background:white;
+
+    box-shadow:0 0 8px rgba(245,124,0,.20);
+
+}
+
+.btnAdicionar{
+
+    margin-top:20px;
+
+    background:#F57C00;
+
+    color:white;
+
+    border:none;
+
+    padding:14px 28px;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    font-size:15px;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+.btnAdicionar:hover{
+
+    background:#df6e00;
+
+}
+
+.btnExcluir{
+
+    width:50px;
+
+    height:50px;
+
+    border:none;
+
+    border-radius:10px;
+
+    background:#d32f2f;
+
+    color:white;
+
+    cursor:pointer;
+
+    font-size:20px;
+
+    transition:.3s;
+
+}
+
+.btnExcluir:hover{
+
+    background:#b71c1c;
+
+}
+
+/* ===========================================================
+   RESUMO
+=========================================================== */
+
+.resumoBloco{
+
+    background:#fafafa;
+
+    border:1px solid #e5e5e5;
+
+    border-radius:12px;
+
+    padding:20px;
+
+    margin-bottom:25px;
+
+}
+
+.resumoBloco h3{
+
+    margin-bottom:15px;
+
+    color:#F57C00;
+
+}
+
+.resumoLinha{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    margin-bottom:10px;
+
+    padding-bottom:10px;
+
+    border-bottom:1px dashed #ddd;
+
+}
+
+.resumoLinha:last-child{
+
+    border:none;
+
+}
+
+.valorResumo{
+
+    margin-top:20px;
+
+    background:#F57C00;
+
+    color:white;
+
+    border-radius:10px;
+
+    padding:16px 20px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    font-size:18px;
+
+    font-weight:700;
+
+}
+
+.valorFinal{
+
+    background:#1F1F1F;
+
+    color:white;
+
+    border-radius:15px;
+
+    padding:25px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    font-size:24px;
+
+    font-weight:700;
+
+    margin-top:30px;
+
+    margin-bottom:30px;
+
+}
+
+.btnPDF{
+
+    background:#2E7D32;
+
+    color:white;
+
+    border:none;
+
+    border-radius:10px;
+
+    padding:14px 35px;
+
+    cursor:pointer;
+
+    font-size:16px;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+.btnPDF:hover{
+
+    background:#1B5E20;
+
+}
+
+/* ===========================================================
+   ANIMAÇÕES
+=========================================================== */
+
+@keyframes aparecer{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(20px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+.pagina.ativa{
+
+    animation:aparecer .35s ease;
+
+}
+
+/* ===========================================================
+   HOVERS
+=========================================================== */
+
+.card{
+
+    transition:.30s;
+
+}
+
+.card:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:0 12px 28px rgba(0,0,0,.10);
+
+}
+
+button{
+
+    transition:.25s;
+
+}
+
+button:hover{
+
+    transform:translateY(-2px);
+
+}
+
+/* ===========================================================
+   SCROLL
+=========================================================== */
+
+::-webkit-scrollbar{
+
+    width:10px;
+
+}
+
+::-webkit-scrollbar-track{
+
+    background:#efefef;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:#F57C00;
+
+    border-radius:20px;
+
+}
+
+::-webkit-scrollbar-thumb:hover{
+
+    background:#df6e00;
+
+}
+
+/* ===========================================================
+   RESPONSIVO
+=========================================================== */
+
+@media(max-width:950px){
+
+header{
+
+    flex-direction:column;
+
+    align-items:flex-start;
+
+    gap:25px;
+
+}
+
+.logoArea{
+
+    flex-direction:column;
+
+    align-items:flex-start;
+
+}
+
+.logo{
+
+    width:150px;
+
+}
+
+.progresso{
+
+    width:100%;
+
+    justify-content:center;
+
+}
+
+.grid2{
+
+    grid-template-columns:1fr;
+
+}
+
+.cabecalhoLista{
+
+    display:none;
+
+}
+
+.itemLista{
+
+    grid-template-columns:1fr;
+
+}
+
+.btnExcluir{
+
+    width:100%;
+
+}
+
+.footer{
+
+    flex-direction:column;
+
+}
+
+.btn,
+
+.btnVoltar,
+
+.btnPDF,
+
+.btnAdicionar{
+
+    width:100%;
+
+}
+
+.valorFinal{
+
+    flex-direction:column;
+
+    gap:15px;
+
+    text-align:center;
+
+}
+
+}
+
+/* ===========================================================
+   IMPRESSÃO
+=========================================================== */
+
+@media print{
+
+body{
+
+    background:white;
+
+}
+
+header{
+
+    box-shadow:none;
+
+}
+
+.card{
+
+    box-shadow:none;
+
+    border:1px solid #ddd;
+
+}
+
+.footer{
+
+    display:none;
+
+}
+
+.btn,
+
+.btnVoltar,
+
+.btnAdicionar,
+
+.btnPDF{
+
+    display:none;
+
+}
+
+}
+
+/* ===========================================================
+   FIM DO CSS
+=========================================================== */
