@@ -1,1 +1,554 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
 
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Orçamento de Reparo Veicular</title>
+
+    <link rel="stylesheet"
+          href="style.css">
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<header>
+
+<div class="logoArea">
+
+<img src="img/LOGOUSO.png"
+     class="logo">
+
+<div>
+
+<h1>
+
+ORÇAMENTO DE REPARO VEICULAR
+
+</h1>
+
+<p>
+
+Uso Locadora • Oficina Credenciada
+
+</p>
+
+</div>
+
+</div>
+
+<div class="progresso">
+
+<div class="etapa ativa">
+
+1
+
+</div>
+
+<div class="linha"></div>
+
+<div class="etapa">
+
+2
+
+</div>
+
+<div class="linha"></div>
+
+<div class="etapa">
+
+3
+
+</div>
+
+</div>
+
+</header>
+
+<!-- ===================================================== -->
+
+<section
+id="pagina1"
+class="pagina ativa">
+
+<div class="card">
+
+<h2>
+
+Dados do Cliente
+
+</h2>
+
+<div class="grid">
+
+<div class="campo">
+
+<label>
+
+Nome
+
+</label>
+
+<input
+type="text"
+id="nome">
+
+</div>
+
+<div class="campo">
+
+<label>
+
+Condutor
+
+</label>
+
+<input
+type="text"
+id="condutor">
+
+</div>
+
+<div class="campo">
+
+<label>
+
+Telefone
+
+</label>
+
+<input
+type="text"
+id="telefone">
+
+</div>
+
+</div>
+
+</div>
+
+<div class="card">
+
+<h2>
+
+Dados do Veículo
+
+</h2>
+
+<div class="grid2">
+
+<div class="campo">
+
+<label>
+
+Placa
+
+</label>
+
+<input
+type="text"
+id="placa">
+
+</div>
+
+<div class="campo">
+
+<label>
+
+Marca
+
+</label>
+
+<input
+type="text"
+id="marca">
+
+</div>
+
+<div class="campo">
+
+<label>
+
+Modelo
+
+</label>
+
+<input
+type="text"
+id="modelo">
+
+</div>
+
+<div class="campo">
+
+<label>
+
+Ano
+
+</label>
+
+<input
+type="text"
+id="ano">
+
+</div>
+
+<div class="campo">
+
+<label>
+
+Cor
+
+</label>
+
+<input
+type="text"
+id="cor">
+
+</div>
+
+<div class="campo">
+
+<label>
+
+KM
+
+</label>
+
+<input
+type="number"
+id="km">
+
+</div>
+
+</div>
+
+</div>
+
+<div class="footer">
+
+<button
+class="btn"
+
+onclick="proximaPagina(2)">
+
+Avançar →
+
+</button>
+
+</div>
+
+</section>
+
+<!-- ===================================================== -->
+
+<section
+id="pagina2"
+class="pagina">
+
+<div class="card">
+
+<h2>
+
+Peças
+
+</h2>
+
+<div
+class="cabecalhoLista">
+
+<div>
+
+Descrição
+
+</div>
+
+<div>
+
+Valor
+
+</div>
+
+<div>
+
+</div>
+
+</div>
+
+<div
+id="listaPecas">
+
+</div>
+
+<button
+class="btnAdicionar"
+
+onclick="adicionarPeca()">
+
++ Incluir Peça
+
+</button>
+
+</div>
+
+<div class="card">
+
+<h2>
+
+Serviços
+
+</h2>
+
+<div
+class="cabecalhoLista">
+
+<div>
+
+Descrição
+
+</div>
+
+<div>
+
+Valor
+
+</div>
+
+<div>
+
+</div>
+
+</div>
+
+<div
+id="listaServicos">
+
+</div>
+
+<button
+class="btnAdicionar"
+
+onclick="adicionarServico()">
+
++ Incluir Serviço
+
+</button>
+
+</div>
+
+<div class="footer">
+
+<button
+class="btnVoltar"
+
+onclick="voltarPagina(1)">
+
+← Voltar
+
+</button>
+
+<button
+class="btn"
+
+onclick="gerarResumo();proximaPagina(3)">
+
+Avançar →
+
+</button>
+
+</div>
+
+</section>
+
+  <!-- ===================================================== -->
+
+<section
+id="pagina3"
+class="pagina">
+
+<div class="card">
+
+<h2>
+
+Resumo do Orçamento
+
+</h2>
+
+<div class="resumoBloco">
+
+<h3>
+
+Cliente
+
+</h3>
+
+<div id="resumoCliente">
+
+</div>
+
+</div>
+
+<div class="resumoBloco">
+
+<h3>
+
+Veículo
+
+</h3>
+
+<div id="resumoVeiculo">
+
+</div>
+
+</div>
+
+<div class="resumoBloco">
+
+<h3>
+
+Peças
+
+</h3>
+
+<div id="resumoPecas">
+
+</div>
+
+<div class="valorResumo">
+
+TOTAL PEÇAS
+
+<span id="totalPecas">
+
+R$ 0,00
+
+</span>
+
+</div>
+
+</div>
+
+<div class="resumoBloco">
+
+<h3>
+
+Serviços
+
+</h3>
+
+<div id="resumoServicos">
+
+</div>
+
+<div class="valorResumo">
+
+TOTAL SERVIÇOS
+
+<span id="totalServicos">
+
+R$ 0,00
+
+</span>
+
+</div>
+
+</div>
+
+<div class="valorFinal">
+
+<div>
+
+VALOR TOTAL
+
+</div>
+
+<div id="totalGeral">
+
+R$ 0,00
+
+</div>
+
+</div>
+
+<div class="grid">
+
+<div class="campo">
+
+<label>
+
+Prazo de execução
+
+</label>
+
+<input
+type="text"
+id="prazoExecucao"
+placeholder="Ex: 5 dias úteis">
+
+</div>
+
+<div class="campo">
+
+<label>
+
+Validade da proposta
+
+</label>
+
+<input
+type="text"
+id="validadeProposta"
+placeholder="Ex: 10 dias">
+
+</div>
+
+</div>
+
+</div>
+
+<div class="footer">
+
+<button
+class="btnVoltar"
+onclick="voltarPagina(2)">
+
+← Voltar
+
+</button>
+
+<button
+class="btnPDF"
+onclick="gerarPDF()">
+
+📄 Gerar PDF
+
+</button>
+
+</div>
+
+</section>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
